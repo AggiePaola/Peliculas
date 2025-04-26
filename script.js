@@ -3,19 +3,21 @@ const peliculas = [
     titulo: "¡Caigan las rosas blancas!",
     descripcion: "Flor bonita, rosada",
     descripcion2: "aaaaaaaaaaaaa",
-    imagen: "img/img_1.png"
+    imagen: "img/img_1.png",
+    imagen2: "img/img_1_1.png"
   },
   {
-    titulo: "¡Caigan las  blancas!",
+    titulo: "¡Caigan las blancas!",
     descripcion: "Flor bonita, rosada",
     descripcion2: "eeeeeeeeeeeeeeeee",
-    imagen: "img/img_1.png"
+    imagen: "img/img_2.png",
+    imagen2: "img/img_2_2.png"
   }
-
 ];
 
 const contenedor = document.getElementById("contenedor-peliculas");
 
+// Crea las tarjetas de las películas
 peliculas.forEach((pelicula, index) => {
   const tarjeta = `
     <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
@@ -29,7 +31,8 @@ peliculas.forEach((pelicula, index) => {
                   data-toggle="modal" 
                   data-target="#modalGeneral"
                   data-titulo="${pelicula.titulo}"
-                  data-descripcion="${pelicula.descripcion2}">
+                  data-descripcion="${pelicula.descripcion2}"
+                  data-imagen="${pelicula.imagen2}">
             Ver más
           </button>
         </div>
@@ -50,8 +53,15 @@ const modalHTML = `
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body" id="modalDescripcion">
-          Descripción aquí
+        <div class="modal-body d-flex">
+          <!-- Columna para la imagen -->
+          <div class="col-md-4">
+            <img class="img-fluid" id="modalImagen" src="" alt="imagen de película">
+          </div>
+          <!-- Columna para la descripción -->
+          <div class="col-md-8">
+            <p id="modalDescripcion">Descripción aquí</p>
+          </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar detalles de la película</button>
@@ -63,13 +73,15 @@ const modalHTML = `
 
 document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-// Y ahora hacemos que el modal cambie su contenido dinámicamente:
+// Ahora hacemos que el modal cambie su contenido dinámicamente:
 $('#modalGeneral').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget); // Botón que abrió el modal
   var titulo = button.data('titulo');
   var descripcion = button.data('descripcion');
+  var imagen = button.data('imagen');
 
   var modal = $(this);
   modal.find('#modalTitulo').text(titulo);
   modal.find('#modalDescripcion').text(descripcion);
+  modal.find('#modalImagen').attr('src', imagen); // Cambia la imagen dentro del modal
 });
