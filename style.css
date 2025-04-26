@@ -1,4 +1,10 @@
+body {
+    background-color: black;
+}
+
+
+
 .mi-imagen {
-    height: 100px;
+    height: 280px;
     weight: 100px;
 }
