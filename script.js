@@ -4,17 +4,26 @@ const peliculas = [
     descripcion: "Flor bonita, rosada",
     descripcion2: "aaaaaaaaaaaaa",
     imagen: "img/img_1.png",
-    imagen2: "img/img_1_1.png"
+    imagen2: "img/img_1_1.png",
+    actores: [
+      { nombre: "Actor 1", imagen: "img/img_1_2.png" },
+      { nombre: "Actor 2", imagen: "img/img_1_3.png" },
+      { nombre: "Actor 3", imagen: "img/actor3.png" }
+    ]
   },
   {
     titulo: "¡Caigan las blancas!",
     descripcion: "Flor bonita, rosada",
     descripcion2: "eeeeeeeeeeeeeeeee",
     imagen: "img/img_2.png",
-    imagen2: "img/img_2_2.png"
+    imagen2: "img/img_2_2.png",
+    actores: [
+      { nombre: "Actor 1", imagen: "img/actor1.png" },
+      { nombre: "Actor 2", imagen: "img/actor2.png" },
+      { nombre: "Actor 3", imagen: "img/actor3.png" }
+    ]
   }
 ];
-
 const contenedor = document.getElementById("contenedor-peliculas");
 
 // Crea las tarjetas de las películas
@@ -32,7 +41,8 @@ peliculas.forEach((pelicula, index) => {
                   data-target="#modalGeneral"
                   data-titulo="${pelicula.titulo}"
                   data-descripcion="${pelicula.descripcion2}"
-                  data-imagen="${pelicula.imagen2}">
+                  data-imagen="${pelicula.imagen2}"
+                  data-actores='${JSON.stringify(pelicula.actores)}'> <!-- Aquí pasamos los actores -->
             Ver más
           </button>
         </div>
@@ -61,6 +71,8 @@ const modalHTML = `
           <!-- Columna para la descripción -->
           <div class="col-md-8">
             <p id="modalDescripcion">Descripción aquí</p>
+            <h6>Actores:</h6>
+            <div id="modalActores"></div> <!-- Aquí se agregarán los actores -->
           </div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
@@ -79,9 +91,25 @@ $('#modalGeneral').on('show.bs.modal', function (event) {
   var titulo = button.data('titulo');
   var descripcion = button.data('descripcion');
   var imagen = button.data('imagen');
+  var actores = button.data('actores'); // Obtener los actores como array de objetos
 
   var modal = $(this);
   modal.find('#modalTitulo').text(titulo);
   modal.find('#modalDescripcion').text(descripcion);
   modal.find('#modalImagen').attr('src', imagen); // Cambia la imagen dentro del modal
+
+  // Limpiar la lista de actores
+  var actoresList = modal.find('#modalActores');
+  actoresList.empty(); // Limpiar antes de añadir nuevos actores
+
+  // Agregar actores con imagen
+  actores.forEach(function (actor) {
+    var actorHTML = `
+      <div class="actor">
+        <img src="${actor.imagen}" alt="${actor.nombre}" class="img-fluid" style="width: 50px; height: 50px; border-radius: 50%;">
+        <p>${actor.nombre}</p>
+      </div>
+    `;
+    actoresList.append(actorHTML);
+  });
 });
