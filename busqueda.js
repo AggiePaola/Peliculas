@@ -13,20 +13,19 @@ function search() {
             renderizarPeliculas(peliculasFiltradas);
         } else {
             alert("No se encontraron resultados.");
-            renderizarPeliculas([]); // En caso de no encontrar resultados, muestra vacío
+            renderizarPeliculas([]);
         }
     } else {
         console.log("No se ha ingresado texto, mostrando todas las películas.");
         renderizarPeliculas(peliculas);
     }
 
-    $('#modalGeneral').modal('hide'); // Esto cierra el modal si estaba abierto.
+    $('#modalGeneral').modal('hide');
 }
 
 function renderizarPeliculas(peliculas) {
     const contenedor = document.getElementById("contenedor-peliculas");
-    contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas películas
-
+    contenedor.innerHTML = ''; /
     // Crear las tarjetas de las películas
     peliculas.forEach((pelicula, index) => {
         const tarjeta = `
