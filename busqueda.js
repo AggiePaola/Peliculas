@@ -24,49 +24,37 @@ function search() {
         console.log("No se ha ingresado texto, mostrando todas las películas.");
         renderizarPeliculas(peliculas);  // Renderiza todas las películas
     }
+
+    $('#modalGeneral').modal('hide'); // Esto cierra el modal si estaba abierto.
 }
 
 function renderizarPeliculas(peliculas) {
     const contenedor = document.getElementById("contenedor-peliculas");
-    contenedor.innerHTML = ""; // Limpiar el contenedor antes de agregar las nuevas tarjetas
+    contenedor.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas películas
 
-    peliculas.forEach((pelicula) => {
+    // Crear las tarjetas de las películas
+    peliculas.forEach((pelicula, index) => {
         const tarjeta = `
-            <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
-                <div class="card">
-                    <img class="card-img-top mi-imagen" src="${pelicula.imagen}" alt="${pelicula.titulo}">
-                    <div class="card-body text-center">
-                        <h4 class="card-title">${pelicula.titulo}</h4>
-                        <p class="card-text">${pelicula.descripcion}</p>
-                        <button type="button" class="btn btn-primary btn-lg" 
-                                data-toggle="modal" 
-                                data-target="#modalGeneral" 
-                                data-titulo="${pelicula.titulo}" 
-                                data-descripcion="${pelicula.descripcion}" 
-                                data-imagen="${pelicula.imagen}">
-                            Ver más
-                        </button>
-                    </div>
-                </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-3">
+          <div class="card">
+            <img class="card-img-top mi-imagen" src="${pelicula.imagen}" alt="${pelicula.titulo}">
+            <div class="card-body text-center">
+              <h4 class="card-title">${pelicula.titulo}</h4>
+              <p class="card-text">${pelicula.descripcion}</p>
+              <button type="button" 
+                      class="btn btn-primary btn-lg" 
+                      data-toggle="modal" 
+                      data-target="#modalGeneral"
+                      data-titulo="${pelicula.titulo}"
+                      data-descripcion="${pelicula.descripcion2}"
+                      data-imagen="${pelicula.imagen2}"
+                      data-actores='${JSON.stringify(pelicula.actores)}'> <!-- Aquí pasamos los actores -->
+                Ver más
+              </button>
             </div>
-        `;
+          </div>
+        </div>
+      `;
         contenedor.innerHTML += tarjeta;
     });
-
-    // Delegación de eventos para el botón "Ver más"
-    contenedor.addEventListener('click', function (event) {
-        if (event.target && event.target.classList.contains('btn-primary')) {
-            const button = event.target;
-            const titulo = button.getAttribute('data-titulo');
-            const descripcion = button.getAttribute('data-descripcion');
-            const imagen = button.getAttribute('data-imagen');
-
-            // Mostrar la información en el modal
-            const modal = $('#modalGeneral');
-            modal.find('#modalTitulo').text(titulo);
-            modal.find('#modalDescripcion').text(descripcion);
-            modal.find('#modalImagen').attr('src', imagen);
-        }
-    });
 }
-
