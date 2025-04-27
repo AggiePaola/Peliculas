@@ -17,14 +17,49 @@
     <header class="bg-danger p-0">
         <h1 class="text-center text-white p-2"> Peliculas</h1>
     </header>
+
+
+    <!-- Cuadro de búsqueda -->
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input id="searchInput" type="text" class="form-control" placeholder="Buscar..."
+                        aria-label="Buscar">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="search()">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- contenedor -->
     <div class="container">
         <div class="row mt-3 mb-3" id="contenedor-peliculas"></div>
         <div class="col-lg-4 col-md-6 col-sm-12 mt-3"></div>
     </div>
     </div>
-    <footer class="bg-primary p-1">
-        <h1 class="text-center text-white p-2"> &copy; Hecho por mi </h1>
+    <footer class="bg-danger p-1">
+        <footer class="bg-danger text-white text-center py-4">
+            <div class="container">
+                <p>&copy; 2025 Biblioteca de películas. Todos los derechos reservados.</p>
+                <p>
+                    <a href="#" class="text-white">Política de privacidad</a> |
+                    <a href="#" class="text-white">Términos de servicio</a>
+                </p>
+                <div class="social-icons">
+                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+
     </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -37,7 +72,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-</body>
 
-</html>
+    <!-- scripts personalizados -->
+    <script src="busqueda.js"></script>
+    <script src="script.js"></script>
