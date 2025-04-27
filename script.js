@@ -11,7 +11,7 @@ peliculas.forEach((pelicula, index) => {
           <h4 class="card-title">${pelicula.titulo}</h4>
           <p class="card-text">${pelicula.descripcion}</p>
           <button type="button" 
-                  class="btn btn-primary btn-lg" 
+                  class="btn btn-danger btn-lg" 
                   data-toggle="modal" 
                   data-target="#modalGeneral"
                   data-titulo="${pelicula.titulo}"
@@ -52,7 +52,7 @@ const modalHTML = `
           </div>
 
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar detalles de la película</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar detalles de la película</button>
         </div>
       </div>
     </div>

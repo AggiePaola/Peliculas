@@ -1,17 +1,13 @@
 function search() {
-    // Obtener el valor del campo de búsqueda y convertirlo a minúsculas
     const searchQuery = document.getElementById('searchInput').value.toLowerCase();
 
-    // Verificar si hay un valor en el campo de búsqueda
     if (searchQuery) {
         console.log("Buscando:", searchQuery);
-
-        // Filtrar las películas que coinciden con el término de búsqueda en el título
         const peliculasFiltradas = peliculas.filter(pelicula =>
             pelicula.titulo.toLowerCase().includes(searchQuery)
         );
 
-        // Mostrar los resultados
+        // resultados
         if (peliculasFiltradas.length > 0) {
             alert("Se encontraron " + peliculasFiltradas.length + " resultados.");
             renderizarPeliculas(peliculasFiltradas);
@@ -20,9 +16,8 @@ function search() {
             renderizarPeliculas([]); // En caso de no encontrar resultados, muestra vacío
         }
     } else {
-        // Si el campo está vacío, mostrar todas las películas
         console.log("No se ha ingresado texto, mostrando todas las películas.");
-        renderizarPeliculas(peliculas);  // Renderiza todas las películas
+        renderizarPeliculas(peliculas);
     }
 
     $('#modalGeneral').modal('hide'); // Esto cierra el modal si estaba abierto.
@@ -42,7 +37,7 @@ function renderizarPeliculas(peliculas) {
               <h4 class="card-title">${pelicula.titulo}</h4>
               <p class="card-text">${pelicula.descripcion}</p>
               <button type="button" 
-                      class="btn btn-primary btn-lg" 
+                      class="btn btn-danger btn-lg" 
                       data-toggle="modal" 
                       data-target="#modalGeneral"
                       data-titulo="${pelicula.titulo}"

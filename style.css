@@ -1,5 +1,9 @@
 body {
-    background-color: black;
+    background-image: url('img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
 .mi-imagen {
@@ -9,23 +13,16 @@ body {
 
 #modalActores {
     display: flex;
-    /* Flexbox para alinear en fila */
     flex-wrap: wrap;
-    /* En caso de que haya muchos actores, que se ajusten a una nueva línea */
     gap: 10px;
-    /* Espaciado entre las imágenes */
 }
 
 #modalActores .actor {
     text-align: center;
-    /* Centrar el texto (nombre del actor) debajo de la imagen */
 }
 
 #modalActores .actor img {
     width: 50px;
-    /* Tamaño de la imagen del actor */
     height: 50px;
-    /* Tamaño de la imagen del actor */
     border-radius: 50%;
-    /* Para hacer que las imágenes sean redondas */
 }
