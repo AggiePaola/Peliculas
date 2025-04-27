@@ -71,8 +71,8 @@ const peliculas = [
         titulo: "Schindler's List",
         descripcion: "Drama, Bélico",
         descripcion2: "La historia real de Oskar Schindler, un empresario alemán que salva la vida de más de mil judíos durante el Holocausto Gump, un hombre con un coeficiente intelectual bajo, se ve envuelto en varios eventos históricos mientras sigue su amor por Jenny",
-        imagen: "img/img_.png",
-        imagen2: "img/img_1_1.png",
+        imagen: "img/img_7.png",
+        imagen2: "img/img_7_1.png",
         actores: [
             { nombre: "Liam Neeson", imagen: "img/img_7_2.png" },
             { nombre: "Ben Kingsley", imagen: "img/img_7_3.png" },
@@ -82,8 +82,8 @@ const peliculas = [
         titulo: "Pulp Fiction",
         descripcion: "Crimen, Drama",
         descripcion2: "Varias historias interconectadas sobre el crimen en Los Ángeles, contadas de manera no lineal.",
-        imagen: "img/img_1.png",
-        imagen2: "img/img_1_1.png",
+        imagen: "img/img_8.png",
+        imagen2: "img/img_8_1.png",
         actores: [
             { nombre: "John Travolta", imagen: "img/img_8_2.png" },
             { nombre: "Uma Thurman", imagen: "img/img_8_3.png" },
@@ -93,8 +93,8 @@ const peliculas = [
         titulo: "The Matrix",
         descripcion: "Ciencia Ficción, Acción",
         descripcion2: "Un hacker llamado Neo descubre que el mundo en el que vive es una simulación creada por máquinas para controlar a la humanidad.",
-        imagen: "img/img_1.png",
-        imagen2: "img/img_1_1.png",
+        imagen: "img/img_9.png",
+        imagen2: "img/img_9_1.png",
         actores: [
             { nombre: "Keanu Reeves", imagen: "img/img_9_2.png" },
             { nombre: "Laurence Fishburne", imagen: "img/img_9_3.png" },
